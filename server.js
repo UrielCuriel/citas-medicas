@@ -10,7 +10,7 @@ const SELECT_ALL_CITAS = "SELECT * FROM citas WHERE DATE_FORMAT(fecha, '%Y-%m-%e
 const connection = mysql.createConnection({
     'host': 'localhost',
     'user': 'root',
-    'password': 'Amvamq07.',
+    'password': 'contraseña',
     'database': 'citas_odontologicas'
 });
 

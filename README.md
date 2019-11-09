@@ -1,7 +1,7 @@
 # Citas medicas
 Aplicacion basica web, realizada con React, Nodejs y MySQL, para administrar las citas en un consultorio medico.
 
-## Iniciar BD
+## Comando para DB
 ```bash
 > mysql -u root -p
 ```

@@ -20,13 +20,13 @@ class Web extends React.Component{
         <Header />
         <Switch>
           <Route path="/citas">
-            <Citas citas={this.state.citas} />
+            <Citas />
           </Route>
           <Route path="/consultar">
-            <Consultar cosnFormSubmit={this.searchIdCita} />
+            <Consultar />
           </Route>
           <Route path="/agendar">
-            <Agendar formSubmit={this.handledSubmit} date={this.state.date} horarios={this.state.horarios}/>
+            <Agendar />
           </Route>
           <Route path="/">
             <Home />

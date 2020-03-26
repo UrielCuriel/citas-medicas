@@ -1,9 +1,9 @@
 import React from 'react';
 
-const InfoSection = (props) => {
+const InfoSection = ({info}) => {
     return(
         <section className="info-section">
-            <h3>{props.info}</h3>
+            <h3>{info}</h3>
         </section>
     )
 }

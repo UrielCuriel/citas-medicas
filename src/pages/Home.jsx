@@ -1,5 +1,5 @@
 import React from 'react';
-import ButtonMenu from '../components/ButtonMenu.js'
+import ButtonMenu from '../components/ButtonMenu.jsx'
 
 
 const Home = () => {

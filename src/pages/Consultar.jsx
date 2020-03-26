@@ -1,18 +1,24 @@
 import React from 'react';
 import InfoSection from '../components/InfoSection.jsx';
 
+import { AppoimentsContext } from '../context.js'
+
 class Consultar extends React.Component {
-    constructor(props){
-        super(props)
+    constructor(){
+        super()
         this.state = {
           cita: false
         }
     }
+
+    static contextType = AppoimentsContext
+
     formSubmit = (e)=>{
         e.preventDefault();
+        const { cosnFormSubmit } = this.context
         const form = e.target;
         const id = form.cons_id.value;
-        let cita_seacrhed = this.props.cosnFormSubmit(id);
+        let cita_seacrhed = cosnFormSubmit(id);
 
         if(cita_seacrhed){
             form.reset();
@@ -23,7 +29,6 @@ class Consultar extends React.Component {
         }
     }
 
-   
 
     render(){
 

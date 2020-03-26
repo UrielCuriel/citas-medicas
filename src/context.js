@@ -119,7 +119,7 @@ class AppoimentsProvider extends React.Component{
     
 
     render(){
-        <AppoimentContext.Provider>
+        <AppoimentContext.Provider value = {{ ...this.state, handledSubmit: this.handledSubmit,  }}>
             {this.props.childer}
         </AppoimentContext.Provider>
     }
@@ -127,4 +127,4 @@ class AppoimentsProvider extends React.Component{
 
 AppoimentsConsumer = AppoimentsContext.Consumer 
 
-export default {AppoimentsProvider, AppoimentsConsumer}
+export default {AppoimentsProvider, AppoimentsConsumer, AppoimentContext}

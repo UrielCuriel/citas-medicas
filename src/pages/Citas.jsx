@@ -1,7 +1,7 @@
 import React from 'react';
 import InfoSection from './InfoSection.jsx';
 
-const Citas = (props) => {
+const Citas = () => {
     return(
         <div className="citas-container">
             <InfoSection info="Listado de citas: " />

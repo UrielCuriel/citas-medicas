@@ -85,7 +85,7 @@ class AppoimentsProvider extends React.Component{
         }
       }
     
-      handledSubmit = (e) => {
+      handleSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
     
@@ -119,7 +119,7 @@ class AppoimentsProvider extends React.Component{
     
 
     render(){
-        <AppoimentContext.Provider value = {{ ...this.state, handledSubmit: this.handledSubmit,  }}>
+        <AppoimentContext.Provider value = {{ ...this.state, handleSubmit: this.handleSubmit,  }}>
             {this.props.childer}
         </AppoimentContext.Provider>
     }

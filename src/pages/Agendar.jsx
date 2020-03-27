@@ -1,13 +1,13 @@
 import React from 'react';
 import InfoSection from './InfoSection.jsx';
-import Form from '../components/Form.jsx'
+import FormAppoiment from '../components/FormAppoiment.jsx'
 
 const Agendar = () => {
 
     return(
         <div className="container-agendar">
             <InfoSection info="Agendamiento de cita:" />
-            <Form />
+            <FormAppoiment />
         </div>
     )
 }

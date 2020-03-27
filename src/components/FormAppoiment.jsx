@@ -7,9 +7,9 @@ class Form extends React.Components{
     static contextType = AppoimentsContext
 
     render(){
-        const { handledSubmit, date, schedules } = this.context
+        const { handleSubmit, date, schedules } = this.context
         return (
-            <form className="form-agendar" onSubmit={ handledSubmit } >
+            <form className="form-agendar" onSubmit={ handleSubmit } >
 
                 <div className="input-container">
                     <label htmlFor="nombre">Nombre:</label>

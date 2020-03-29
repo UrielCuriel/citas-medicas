@@ -1,5 +1,5 @@
 import React from 'react';
-import InfoSection from './InfoSection.jsx';
+import InfoSection from '../components/InfoSection.jsx';
 import FormAppoiment from '../components/FormAppoiment.jsx'
 
 const Agendar = () => {

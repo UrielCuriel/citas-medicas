@@ -1,7 +1,7 @@
 import React from 'react';
 import InfoSection from '../components/InfoSection.jsx';
 
-import { AppoimentsContext } from '../context.js'
+import { AppoimentsContext } from '../context.jsx'
 
 class Consultar extends React.Component {
     constructor(){

@@ -9,3 +9,5 @@ const ButtonMenu = ({msg, slug}) => {
         </div>
     )
 }
+
+export default ButtonMenu

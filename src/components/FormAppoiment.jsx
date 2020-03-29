@@ -1,8 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { AppoimentsContext } from '../context.jsx'
 
-import { AppoimentsContext } from '../context.js'
-
-class Form extends React.Components{
+class FormAppoiment extends React.Component{
     
     static contextType = AppoimentsContext
 
@@ -33,7 +33,7 @@ class Form extends React.Components{
 
                 <div className="input-container">
                     <label htmlFor="fecha">Fecha:</label>
-                    <input required type="date" id="fecha" min={date.toJSON().split('T')[0]}></input>
+                    <input required type="date" id="fecha" min={date.toString()}></input>
                 </div>
 
                 
@@ -62,4 +62,4 @@ class Form extends React.Components{
     }
 }
 
-export default Form
+export default FormAppoiment

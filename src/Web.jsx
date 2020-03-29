@@ -1,16 +1,16 @@
 import React from 'react';
 import Header from './components/Header.jsx';
 import Home from './pages/Home.jsx';
-import Agendar from './components/Agendar.jsx';
+import Agendar from './pages/Agendar.jsx';
 import Consultar from './pages/Consultar.jsx';
-import Citas from './components/Citas.jsx';
+import Citas from './pages/Citas.jsx';
 import './css/web.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
-import { AppoimentsProvider } from './context.js' 
+import { AppoimentsProvider } from './context.jsx' 
 
 class Web extends React.Component{
   render(){

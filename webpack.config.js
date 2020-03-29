@@ -1,5 +1,7 @@
 
 module.exports = {
+    mode: 'development',
+    watch: true,
     entry: ['@babel/polyfill', './src/index.jsx'] ,
     output: {
       path: __dirname + '/public/js',
@@ -8,7 +10,7 @@ module.exports = {
     module: {
       rules: [
         {
-          test: /\.jsx$/,
+          test: /\.jsx$|\.js$/,
           exclude: /node_modules/,
           use: ['babel-loader']
           

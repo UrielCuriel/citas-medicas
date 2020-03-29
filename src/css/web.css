@@ -46,8 +46,11 @@
 
 .container-home .boton-menu:hover{
     background-color: #0683FF;
-    border-color: #0683FF;
-    color: #fff;
+    border-color: #0683FF
+}
+
+.container-home .boton-menu:hover a{
+    color: #fff
 }
 
 /* AGENDAR STYLES */

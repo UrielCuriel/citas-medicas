@@ -1,20 +1,26 @@
 import React from 'react'
 
+import moment from 'moment'
+
 const AppoimentsContext = React.createContext();
 
 class AppoimentsProvider extends React.Component{
-
-    state = {
-        appoiments = [],
-        date: new Date(),
+    constructor(){
+      super()
+      this.state = {
+        appoiments: [],
+        date: moment().format('YYYY-MM-DD'),
         schedules: ['9:00','9:45','10:30','11:15','12:00','12:45', '13:30', '14:15', '15:00', '15:45', '16:30', '17:15', '18:00']
+      }
+
+      this.handleSubmit = this.handleSubmit.bind(this)
     }
     
     componentDidMount(){
         this.setState({appoiments: this.getAppoiments()})
     }
 
-    getAppoiments(){
+    async getAppoiments(){
         const callAPI = await fetch('http://localhost:5000/citas');
         let res = await callAPI.json();
         let tempAppoiments = res.data;
@@ -22,14 +28,14 @@ class AppoimentsProvider extends React.Component{
         return tempAppoiments 
     }
 
-    postJSON = async (data)=>{
+    async postJSON(data){
         const settings = {
           method: 'POST',
           body: JSON.stringify(data),
           headers:{
             'Content-type': 'application/json'
           }
-        };
+        }
         try{
           const fecthRes = await fetch('http://localhost:5000/citas', settings);
           return fecthRes;
@@ -38,11 +44,11 @@ class AppoimentsProvider extends React.Component{
         }
       }
     
-      validateHora = form =>{
+      validateHora(form){
         let fecha_selected = form.fecha.value;
         let hora_selected = form.horario.value;
     
-        for(let c of this.state.citas){
+        for(let c of this.state.appoiments ){
     
           if(c.fecha.split('T')[0] === fecha_selected && c.horario === hora_selected || this.state.horarios.indexOf(hora_selected) < 0){
     
@@ -53,9 +59,9 @@ class AppoimentsProvider extends React.Component{
         return true;
       }
     
-      validateId = form =>{
+      validateId(form){
         let id = form.identificacion.value;
-        for(let c of this.state.citas){
+        for(let c of this.state.appoiments){
           if(c.identificacion === id){
             alert('Ya Existe una cita con la Identificacion ingresada.')
             return false
@@ -65,7 +71,7 @@ class AppoimentsProvider extends React.Component{
         }
       }
     
-      citaPost = async (form)=>{
+      async citaPost(form){
         let cita = {
           nombre: form.nombre.value,
           identificacion: form.identificacion.value,
@@ -78,18 +84,18 @@ class AppoimentsProvider extends React.Component{
         let reqRes = await this.postJSON(cita);
     
         if(reqRes.status === 200){
-          alert('Cita Agendada con Exito!');
+          alert('Cita Agendda on Exito!');
     
           form.reset();
           this.getCitas();
         }
       }
     
-      handleSubmit = (e) => {
+      handleSubmit(e){
         e.preventDefault();
         const form = e.target;
     
-        if(this.state.citas.length > 0){
+        if(this.state.appoiments.length > 0){
           if(this.validateHora(form) && this.validateId(form) ){
             this.citaPost(form)
           }
@@ -100,7 +106,7 @@ class AppoimentsProvider extends React.Component{
        
       }
     
-      searchIdCita = id => {
+      searchIdCita(id){
         let cita_finded;
         let find = false;
     
@@ -119,12 +125,14 @@ class AppoimentsProvider extends React.Component{
     
 
     render(){
-        <AppoimentContext.Provider value = {{ ...this.state, handleSubmit: this.handleSubmit,  }}>
-            {this.props.childer}
-        </AppoimentContext.Provider>
+      return(
+        <AppoimentsContext.Provider value = {{ ...this.state, handleSubmit: this.handleSubmit  }}>
+            {this.props.children}
+        </AppoimentsContext.Provider>
+      )
     }
 }
 
-AppoimentsConsumer = AppoimentsContext.Consumer 
+const AppoimentsConsumer = AppoimentsContext.Consumer 
 
-export default {AppoimentsProvider, AppoimentsConsumer, AppoimentContext}
+export {AppoimentsProvider, AppoimentsConsumer, AppoimentsContext}

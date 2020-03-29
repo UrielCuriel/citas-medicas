@@ -7,7 +7,7 @@ import {
 const Header = () => {
     return(
         <div className="header">
-            <h1 className="name-logo"><Link to="/">Consultorio<br></br>Medico</Link></h1>
+            <h1 className="name-logo"><Link to="/">Consultorio<br></br>Odontologico</Link></h1>
         </div>
 
     )

@@ -1,0 +1,13 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "citas_odontologicas",
+            "dialect": "MariaDB",
+            "name": "citas",
+            "password": "citasuser",
+            "port": 3306,
+            "server": "localhost",
+            "username": "citasuser"
+        }
+    ]
+}

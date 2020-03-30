@@ -2,9 +2,9 @@
 module.exports = {
     mode: 'development',
     watch: true,
-    entry: ['@babel/polyfill', './src/index.jsx'] ,
+    entry: ['@babel/polyfill', './src/web/index.jsx'] ,
     output: {
-      path: __dirname + '/public/js',
+      path: __dirname + 'dist/public/js',
       filename: 'bundle.js'
     },
     module: {
